@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo Sostenible</title>
+
+    <link href="img/header/logo_sostenible-1.png" rel="icon" />
+
+    <meta
+      name="description"
+      content="Ecosistema de soluciones integradas para la sostenibilidad ambiental"
+    />
+    <meta
+      name="keywords"
+      content="sostenibilidad, tecnología 4.0, bioeconomía, drones, gestión ambiental"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-4 col-md-12">
+            <div
+              class="logo-container justify-content-center justify-content-lg-start"
+            >
+              <img
+                src="img/header/logo_sostenible-1.png"
+                alt="Logo Sostenible"
+                class="logo-img"
+              />
+              <h1 class="logo-text">SOSTENIBLE</h1>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-12">
+            <div class="row g-3">
+              <div class="col-md-4 col-sm-6">
+                <div class="contact-item">
+                  <i class="fas fa-phone-alt contact-icon"></i>
+                  <div class="contact-text">
+                    <h6>Contacto</h6>
+                    <p>+57 315 408 7299</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-6">
+                <div class="contact-item">
+                  <i class="fas fa-envelope contact-icon"></i>
+                  <div class="contact-text">
+                    <h6>Correo</h6>
+                    <p>sosteniblegrupo@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <!-- Menú móvil -->
+        <a
+          class="navbar-brand d-lg-none"
+          href="#"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars me-2"></i>Menú
+        </a>
+
+        <!-- Contenido del menú -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#nosotros">Quiénes Somos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#equipo">Equipo</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="eventosDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Eventos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="eventosDropdown">
+                <li>
+                  <a
+                    class="dropdown-item btn btn-outline-light btn-talleres"
+                    href="#talleres"
+                  >
+                    Talleres
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+
+          <!-- Botón de LinkedIn -->
+          <a
+            class="btn btn-outline-light"
+            href="https://www.linkedin.com/in/grupo-sostenible-393a31371/"
+            target="_blank"
+          >
+            Conoce más
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div
+      id="heroCarousel"
+      class="carousel slide hero-carousel"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/carousel/geo_ambiental-1.png" alt="Sostenibilidad" />
+          <div class="carousel-caption">
+            <p class="animate__animated animate__fadeInRight">
+              Sé diferente, sé natural
+            </p>
+            <h1 class="animate__animated animate__fadeInLeft">Sé sostenible</h1>
+            <a class="btn animate__animated animate__fadeInUp" href="#nosotros"
+              >Conoce más</a
+            >
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/carousel/eco_sensor-1.png" alt="Tecnología" />
+          <div class="carousel-caption">
+            <p class="animate__animated animate__fadeInRight">
+              Tecnologías 4.0 en pro
+            </p>
+            <h1 class="animate__animated animate__fadeInLeft">
+              de la sostenibilidad
+            </h1>
+            <a class="btn animate__animated animate__fadeInUp" href="#nosotros"
+              >Conoce más</a
+            >
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/carousel/verdes_pensamientos-1.png" alt="Naturaleza" />
+          <div class="carousel-caption">
+            <p class="animate__animated animate__fadeInRight">
+              Sé diferente, sé natural
+            </p>
+            <h1 class="animate__animated animate__fadeInLeft">Sé sostenible</h1>
+            <a class="btn animate__animated animate__fadeInUp" href="#nosotros"
+              >Conoce más</a
+            >
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/carousel/ingeo_pixel-1.png" alt="Territorios" />
+          <div class="carousel-caption">
+            <p class="animate__animated animate__fadeInRight">
+              Tecnología de punta
+            </p>
+            <h1 class="animate__animated animate__fadeInLeft">
+              Territorios inteligentes
+            </h1>
+            <a class="btn animate__animated animate__fadeInUp" href="#nosotros"
+              >Conoce más</a
+            >
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Features -->
+    <div class="features-section mt-5">
+      <div class="container">
+        <!-- 🔹 Título de la sección -->
+        <div class="section-title text-center mb-5">
+          <span>Grupo Sostenible</span>
+          <h2>Nuestros pilares son</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <img
+                src="img/icons/drone.png"
+                alt="Tecnología"
+                class="feature-icon"
+              />
+              <h4>Tecnologías 4.0</h4>
+              <p>Dispositivos de última generación al servicio del ambiente.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
+              <img
+                src="img/icons/green-building.png"
+                alt="Sostenibilidad"
+                class="feature-icon"
+              />
+              <h4>Sostenibilidad</h4>
+              <p>
+                Proyectos con triple impacto: social, ambiental y económico.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="feature-card">
+              <img
+                src="img/icons/green-technology.png"
+                alt="Bioeconomía"
+                class="feature-icon"
+              />
+              <h4>Bioeconomía</h4>
+              <p>
+                Modelos de negocio centrados en el bienestar ambiental y el
+                equilibrio económico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about-section">
+      <div class="container">
+        <!-- Título principal de la sección -->
+        <div class="section-title text-center mb-5">
+          <h2>¿Quiénes somos?</h2>
+        </div>
+
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/9za2aNoHdlY"
+                title="Video Grupo Sostenible"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="section-title text-start">
+              <span>Grupo Empresarial</span>
+              <h2>10 años de experiencia</h2>
+            </div>
+            <p class="mb-4">
+              Sostenible es un ecosistema de soluciones integradas que
+              transforma la manera en que las empresas, gobiernos y comunidades
+              analizan, gestionan y reducen su impacto ambiental para potenciar
+              sus territorios.
+            </p>
+            <p class="mb-4">
+              Incorporamos tecnologías 4.0 para la generación de información de
+              alto valor y pertinente para la mejora en la toma de decisiones en
+              sectores como: agricultura, forestal, ganadería, construcción,
+              industrial y minero-energético.
+            </p>
+            <a
+              class="btn"
+              href="https://www.instagram.com/gruposostenible_?hl=en"
+              target="_blank"
+            >
+              <i class="fab fa-instagram me-2"></i>Lee más
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card">
+              <i class="fas fa-leaf stat-icon"></i>
+              <div class="stat-number">33,250</div>
+              <div class="stat-label">Área analizada (hectareas)</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card">
+              <i class="fas fa-chart-line stat-icon"></i>
+              <div class="stat-number">8,230</div>
+              <div class="stat-label">Datos analizados</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card">
+              <i class="fas fa-handshake stat-icon"></i>
+              <div class="stat-number">50</div>
+              <div class="stat-label">Clientes</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card">
+              <i class="fas fa-users stat-icon"></i>
+              <div class="stat-number">1,500</div>
+              <div class="stat-label">Personas impactadas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Grupo Sostenible</span>
+          <h2>Líneas de negocio</h2>
+        </div>
+
+        <div class="row g-4">
+          <!-- TECNOLOGÍA Y DRONES -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="img/services/drones-1.png"
+                  alt="Tecnología y Drones"
+                />
+                <div class="service-overlay">
+                  <p>
+                    Toma de datos UAS fotogramétricos y multiespectrales para la
+                    planificación y el monitoreo de sistemas productivos.
+                  </p>
+                </div>
+              </div>
+              <div class="service-body">
+                <h4>Tecnología y drones</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOPOGRAFÍA DE PRECISIÓN -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="img/services/topografia-1.png"
+                  alt="Topografía de Precisión"
+                />
+                <div class="service-overlay">
+                  <p>
+                    Ofrecemos servicios de topografía con equipos modernos,
+                    mejorando la eficiencia en los procesos de captura de datos
+                    y garantizando calidad.
+                  </p>
+                </div>
+              </div>
+              <div class="service-body">
+                <h4>Topografía de precisión</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- VISORES GEOGRÁFICOS -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="img/services/geovisores-1.png"
+                  alt="Visores Geográficos"
+                />
+                <div class="service-overlay">
+                  <p>
+                    Visualiza tu territorio en plataformas digitales y convierte
+                    los datos en información útil.
+                  </p>
+                </div>
+              </div>
+              <div class="service-body">
+                <h4>Visores geográficos</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- GESTIÓN AMBIENTAL -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="img/services/gestionAmbiental-1.png"
+                  alt="Gestión Ambiental"
+                />
+                <div class="service-overlay">
+                  <p>
+                    Servicios técnico-jurídicos ambientales con enfoque
+                    territorial, regulatorio y sostenible en el desarrollo de
+                    proyectos.
+                  </p>
+                </div>
+              </div>
+              <div class="service-body">
+                <h4>Gestión ambiental</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINANZAS SOSTENIBLES -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="img/services/finanzas-sostenibles-1.png"
+                  alt="Finanzas Sostenibles"
+                />
+                <div class="service-overlay">
+                  <p>
+                    Planeación estratégica y financiera para proyectos y
+                    negocios basados en la naturaleza, la bioeconomía y la
+                    ecoinnovación.
+                  </p>
+                </div>
+              </div>
+              <div class="service-body">
+                <h4>Finanzas sostenibles</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONSULTORÍA DE PROYECTOS -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-img">
+                <img
+                  src="img/services/consultorias-1.png"
+                  alt="Consultoría de Proyectos"
+                />
+                <div class="service-overlay">
+                  <p>
+                    Asesoría estratégica y planificación integral para
+                    garantizar eficiencia, sostenibilidad e innovación en cada
+                    iniciativa.
+                  </p>
+                </div>
+              </div>
+              <div class="service-body">
+                <h4>Consultoría de proyectos</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Services Section -->
+
+    <!-- Video Section -->
+    <section class="about-section">
+      <div class="container">
+        <!-- Título de la sección -->
+        <div class="section-title text-center">
+          <h2>Nuestra tecnología</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="video-wrapper" style="height: 500px">
+              <iframe
+                src="https://www.youtube.com/embed/HhvbYF-Px_A"
+                style="height: 500px"
+                title="Video Grupo Sostenible"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- companies Section -->
+    <section id="equipo">
+      <div class="container">
+        <div class="section-title">
+          <span>Grupo empresarial</span>
+          <h2>Empresas fundadoras</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img
+                  src="img/companies/verdes_pensamientos.png"
+                  alt="Verdes Pensamientos"
+                />
+              </div>
+              <div class="team-body">
+                <h5>Verdes Pensamientos</h5>
+                <div class="team-social">
+                  <a
+                    href="https://www.instagram.com/verdespensamientos_/?next=%2F"
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img src="img/companies/geoambiental.png" alt="Geoambiental" />
+              </div>
+              <div class="team-body">
+                <h5>Geoambiental</h5>
+                <div class="team-social">
+                  <a
+                    href="https://www.instagram.com/geo.ambiental.st?igsh=MWN1OGx0MHlreG5xbw=="
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img src="img/companies/ecosensor-1.png" alt="Ecosensor" />
+              </div>
+              <div class="team-body">
+                <h5>Ecosensor</h5>
+                <div class="team-social">
+                  <a
+                    href="https://www.instagram.com/ecosensor_enterprise/"
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img src="img/companies/ingeopixel.png" alt="Ingeopixel" />
+              </div>
+              <div class="team-body">
+                <h5>Ingeopixel</h5>
+                <div class="team-social">
+                  <a
+                    href="https://www.instagram.com/ingeopixel/"
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-title">
+          <span>Grupo sostenible</span>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="accordion" id="faqLeft">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    ¿Qué tipo de proyectos o negocios pueden beneficiarse de sus
+                    servicios de planeación estratégica y financiera?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqLeft"
+                >
+                  <div class="accordion-body">
+                    Ofrecemos soluciones a emprendimientos, empresas,
+                    comunidades y entidades públicas que desarrollen iniciativas
+                    productivas o de conservación en torno a la bioeconomía, los
+                    negocios verdes, la sostenibilidad ambiental o la innovación
+                    basada en la naturaleza. Desde agroindustrias sostenibles
+                    hasta proyectos ecoturísticos o de restauración ecológica.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    ¿Cómo garantiza su empresa la viabilidad financiera de
+                    proyectos basados en la naturaleza?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqLeft"
+                >
+                  <div class="accordion-body">
+                    Utilizamos herramientas de modelación financiera, análisis
+                    de riesgo y estructuración de fuentes de financiación verde
+                    (bonos, fondos climáticos, banca sostenible), alineadas con
+                    estándares internacionales como los Objetivos de Desarrollo
+                    Sostenible (ODS) y principios ESG, para asegurar que cada
+                    proyecto sea rentable, escalable y ambientalmente
+                    responsable.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    ¿Cuál es el valor diferencial de su enfoque en bioeconomía y
+                    ecoinnovación frente a una consultora tradicional?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqLeft"
+                >
+                  <div class="accordion-body">
+                    Integramos el conocimiento técnico, ambiental y financiero
+                    para crear modelos de negocio circulares, regenerativos y
+                    con alto potencial de impacto territorial. Nuestro enfoque
+                    no solo mide rentabilidad económica, sino también retorno
+                    social, ambiental y reputacional.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    ¿Qué es la agricultura de precisión y cómo ayudan los drones
+                    multiespectrales?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqLeft"
+                >
+                  <div class="accordion-body">
+                    La agricultura de precisión permite tomar decisiones
+                    inteligentes en el campo usando datos. Con drones
+                    multiespectrales capturamos información clave sobre el
+                    estado real de los cultivos, como estrés hídrico,
+                    enfermedades o deficiencias antes de que sean visibles. Esto
+                    ayuda a aplicar insumos solo donde y cuando se necesitan,
+                    ahorrando costos y mejorando los rendimientos.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    ¿Qué diferencia hay entre drones RGB y multiespectrales?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqLeft"
+                >
+                  <div class="accordion-body">
+                    Los drones RGB muestran lo que el ojo ve: imágenes nítidas
+                    del cultivo o terreno. Los drones multiespectrales, en
+                    cambio, revelan lo que no se ve: salud vegetal, vigor,
+                    estrés o daños. Son herramientas complementarias: uno para
+                    observar, el otro para diagnosticar.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="accordion" id="faqRight">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    ¿Cuándo necesito un permiso de vertimientos y cómo lo
+                    tramito?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqRight"
+                >
+                  <div class="accordion-body">
+                    En Colombia, cualquier descarga de aguas residuales al
+                    suelo, cuerpos de agua o sistemas de alcantarillado requiere
+                    un permiso de vertimientos, según el Decreto 1076 de 2015.
+                    Te asesoramos en la caracterización, el diseño del sistema
+                    de tratamiento (como pozos sépticos y filtros anaerobios) y
+                    el trámite completo ante la autoridad ambiental,
+                    garantizando cumplimiento normativo y soluciones adaptadas a
+                    entornos rurales y urbanos.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq7"
+                  >
+                    ¿Cómo puede ser mi proyecto ambientalmente viable, rentable
+                    y sostenible?
+                  </button>
+                </h2>
+                <div
+                  id="faq7"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqRight"
+                >
+                  <div class="accordion-body">
+                    A través de diagnósticos ambientales, estudios técnicos
+                    prediales, planes de manejo, mapeo geoespacial y análisis
+                    normativos, integrando la sostenibilidad ambiental con la
+                    planeación territorial y soluciones integrales.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq8"
+                  >
+                    ¿Qué son las infraestructuras de datos espaciales y cómo
+                    contribuyen a la sostenibilidad territorial?
+                  </button>
+                </h2>
+                <div
+                  id="faq8"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqRight"
+                >
+                  <div class="accordion-body">
+                    Las infraestructuras de datos espaciales (IDE) son sistemas
+                    organizados que integran datos geográficos, tecnologías,
+                    políticas y recursos humanos para facilitar el acceso, uso e
+                    intercambio de información espacial. Contribuyen a la
+                    sostenibilidad territorial al ofrecer información precisa y
+                    actualizada para la planificación y gestión del territorio.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq9"
+                  >
+                    ¿Qué es un visor geográfico y cuáles son sus ventajas de
+                    uso?
+                  </button>
+                </h2>
+                <div
+                  id="faq9"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqRight"
+                >
+                  <div class="accordion-body">
+                    Es una herramienta digital que permite visualizar y analizar
+                    información espacial mediante mapas interactivos. Ofrece
+                    ventajas como: acceso a datos actualizados sin software
+                    especializado; apoyo en la toma de decisiones; transparencia
+                    y participación ciudadana; eficiencia al centralizar
+                    información; y prevención mediante anticipación de
+                    conflictos.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq10"
+                  >
+                    ¿Cómo los sistemas de información geográfica gestionan
+                    territorios más inteligentes?
+                  </button>
+                </h2>
+                <div
+                  id="faq10"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqRight"
+                >
+                  <div class="accordion-body">
+                    Los Sistemas de Información Geográfica (SIG) permiten
+                    gestionar territorios más inteligentes al integrar y
+                    analizar datos espaciales de distintos sectores. Contribuyen
+                    al sector minero-energético, salud, económico, construcción,
+                    ambiental, agrícola, transporte, turístico, seguridad y
+                    gestión del riesgo. Los SIG convierten los datos en
+                    conocimiento útil para construir territorios más eficientes,
+                    resilientes y sostenibles.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="py-3 bg-light">
+      <div class="container">
+        <!-- Título de sección -->
+        <div class="section-title text-center mb-5">
+          <span>Grupo Sostenible</span>
+          <h2>Nuestros clientes</h2>
+        </div>
+
+        <!-- Carousel -->
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner text-center">
+            <!-- Testimonio 1 -->
+            <div class="carousel-item active">
+              <div class="testimonial-item mx-auto" style="max-width: 700px">
+                <img
+                  src="img/testimonials/camu.png"
+                  class="rounded-circle mb-4"
+                  alt="Constructora CAMU"
+                  style="width: 120px; height: 120px; object-fit: cover"
+                />
+                <h3 class="fw-bold mb-1">Constructora CAMU</h3>
+                <h5 class="text-muted mb-3">Cliente satisfecho</h5>
+                <p class="fst-italic">
+                  Empresa que desarrolla proyectos de construcción sostenible.
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 2 -->
+            <div class="carousel-item">
+              <div class="testimonial-item mx-auto" style="max-width: 700px">
+                <img
+                  src="img/testimonials/carton_colombia.png"
+                  class="rounded-circle mb-4"
+                  alt="Cartón Colombia"
+                  style="width: 120px; height: 120px; object-fit: cover"
+                />
+                <h3 class="fw-bold mb-1">Cartón Colombia</h3>
+                <h5 class="text-muted mb-3">Cliente satisfecho</h5>
+                <p class="fst-italic">
+                  Empresa forestal dedicada a la siembra y aprovechamiento de
+                  especies maderables.
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 3 -->
+            <div class="carousel-item">
+              <div class="testimonial-item mx-auto" style="max-width: 700px">
+                <img
+                  src="img/testimonials/famatodo.png"
+                  class="rounded-circle mb-4"
+                  alt="Farmatodo"
+                  style="width: 120px; height: 120px; object-fit: cover"
+                />
+                <h3 class="fw-bold mb-1">Farmatodo</h3>
+                <h5 class="text-muted mb-3">Cliente satisfecho</h5>
+                <p class="fst-italic">
+                  Cadena de droguerías de autoservicio especializada en
+                  productos para la salud.
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 4 -->
+            <div class="carousel-item">
+              <div class="testimonial-item mx-auto" style="max-width: 700px">
+                <img
+                  src="img/testimonials/alcaldia.png"
+                  class="rounded-circle mb-4"
+                  alt="Alcaldía de Chinchiná"
+                  style="width: 120px; height: 120px; object-fit: cover"
+                />
+                <h3 class="fw-bold mb-1">Alcaldía de Chinchiná</h3>
+                <h5 class="text-muted mb-3">Cliente satisfecho</h5>
+                <p class="fst-italic">
+                  Institución encargada de gobernar y administrar el municipio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon bg-dark rounded-circle p-3"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon bg-dark rounded-circle p-3"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+
+          <!-- Indicadores -->
+          <div class="carousel-indicators mt-4">
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="3"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <h5>Contacto</h5>
+            <div class="d-flex align-items-start mb-3">
+              <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+              <span>Armenia, Quindío.</span>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <i class="fas fa-phone-alt me-3 mt-1"></i>
+              <span>+57 302 416 5250</span>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <i class="fas fa-envelope me-3 mt-1"></i>
+              <span>desarrollosostenible@gmail.com</span>
+            </div>
+            <div class="footer-social">
+              <a
+                href="https://www.instagram.com/gruposostenible_?hl=en"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/grupo-sostenible-393a31371/"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Líneas de servicios</h5>
+            <a href="#servicios" class="footer-link">Construcción</a>
+            <a href="#servicios" class="footer-link">Ambiental</a>
+            <a href="#servicios" class="footer-link">Agricultura</a>
+            <a href="#servicios" class="footer-link">Ganadería</a>
+            <a href="#servicios" class="footer-link">Minero-energético</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Vínculos</h5>
+            <a href="#nosotros" class="footer-link">Acerca de nosotros</a>
+            <a href="#contacto" class="footer-link">Contacto</a>
+            <a href="#equipo" class="footer-link">Nuestro equipo</a>
+            <a href="#servicios" class="footer-link">Servicios</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Sostenible</h5>
+            <p>
+              Un grupo empresarial comprometido con el desarrollo sostenible de
+              la región.
+            </p>
+          </div>
+        </div>
+        <div class="copyright">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <p>&copy; 2024 Todos los derechos reservados.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <p>
+                Diseñado por:
+                <a href="#inicio" style="color: #a8d867; text-decoration: none"
+                  >Grupo Sostenible</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Back to Top Button
+      const backToTop = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("show");
+        } else {
+          backToTop.classList.remove("show");
+        }
+      });
+
+      backToTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Smooth Scroll for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href !== "#" && href !== "#inicio") {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              const offset = 80;
+              const targetPosition = target.offsetTop - offset;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              });
+            }
+          }
+        });
+      });
+
+      // Close mobile menu on link click
+      const navLinks = document.querySelectorAll(".nav-link");
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navbarCollapse.classList.contains("show")) {
+            navbarCollapse.classList.remove("show");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
