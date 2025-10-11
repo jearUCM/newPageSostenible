@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- Top Bar -->
+    <!-- Start Top Bar -->
     <div class="top-bar">
       <div class="container">
         <div class="row align-items-center g-4">
@@ -76,13 +76,14 @@
         </div>
       </div>
     </div>
+    <!-- End Top Bar -->
 
-    <!-- Navigation -->
+    <!-- Start Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
-        <!-- Menú móvil -->
+        <!-- Start Menu movil -->
         <a
-          class="navbar-brand d-lg-none"
+          class="navbar-brand d-lg-none menu-toggle"
           href="#"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -92,12 +93,13 @@
         >
           <i class="fas fa-bars me-2"></i>Menú
         </a>
+        <!-- End Menu Movil -->
 
-        <!-- Contenido del menú -->
+        <!-- Start Menu Content -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#inicio">Inicio</a>
+              <a class="nav-link active" href="index.html">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#nosotros">Quiénes Somos</a>
@@ -109,7 +111,7 @@
               <a class="nav-link" href="#equipo">Equipo</a>
             </li>
 
-            <!-- Dropdown -->
+            <!-- Start Dropdown -->
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -123,22 +125,21 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="eventosDropdown">
                 <li>
-                  <a
-                    class="dropdown-item btn btn-outline-light btn-talleres"
-                    href="#talleres"
-                  >
-                    Talleres
-                  </a>
+                  <a class="dropdown-item" href="index.html">Talleres</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html">Conferencias</a>
                 </li>
               </ul>
             </li>
+            <!-- End Dropdown -->
 
             <li class="nav-item">
               <a class="nav-link" href="#contacto">Contacto</a>
             </li>
           </ul>
 
-          <!-- Botón de LinkedIn -->
+          <!-- Linkedin button -->
           <a
             class="btn btn-outline-light"
             href="https://www.linkedin.com/in/grupo-sostenible-393a31371/"
@@ -147,10 +148,12 @@
             Conoce más
           </a>
         </div>
+        <!-- End Menu Content -->
       </div>
     </nav>
+    <!-- End Navigation -->
 
-    <!-- Carousel -->
+    <!-- Start Carousel -->
     <div
       id="heroCarousel"
       class="carousel slide hero-carousel"
@@ -1163,7 +1166,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // Back to Top Button
+      // ====== Back to Top Button ======
       const backToTop = document.getElementById("backToTop");
 
       window.addEventListener("scroll", () => {
@@ -1179,7 +1182,8 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Smooth Scroll for Navigation Links
+      // ====== Smooth Scroll for Navigation Links ======
+
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           const href = this.getAttribute("href");
@@ -1187,7 +1191,18 @@
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-              const offset = 80;
+              // Calcular la altura real del navbar
+              const navbar = document.querySelector(".navbar");
+              const topBar = document.querySelector(".top-bar");
+
+              // En móvil solo navbar, en desktop navbar + top-bar
+              let offset;
+              if (window.innerWidth < 992) {
+                offset = navbar.offsetHeight + 20; // navbar + margen
+              } else {
+                offset = navbar.offsetHeight + 20; // ajuste para desktop
+              }
+
               const targetPosition = target.offsetTop - offset;
               window.scrollTo({
                 top: targetPosition,
@@ -1198,14 +1213,58 @@
         });
       });
 
-      // Close mobile menu on link click
-      const navLinks = document.querySelectorAll(".nav-link");
-      const navbarCollapse = document.querySelector(".navbar-collapse");
+      // ====== Dropdown funcional en Móvil y Desktop ======
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".navbar .dropdown-toggle");
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          if (navbarCollapse.classList.contains("show")) {
-            navbarCollapse.classList.remove("show");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("click", function (e) {
+            // Detectar si estamos en modo móvil (menú colapsado)
+            const isMobile =
+              window.getComputedStyle(document.querySelector(".navbar-toggler"))
+                .display !== "none";
+            const dropdownMenu = this.nextElementSibling;
+
+            if (isMobile) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              // Cerrar otros dropdowns abiertos
+              document
+                .querySelectorAll(".navbar .dropdown-menu.show")
+                .forEach((openMenu) => {
+                  if (openMenu !== dropdownMenu) {
+                    openMenu.classList.remove("show");
+                  }
+                });
+
+              // Alternar el menú actual
+              dropdownMenu.classList.toggle("show");
+            }
+          });
+        });
+
+        // Cerrar dropdowns si se hace clic fuera
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".navbar-nav .dropdown")) {
+            document
+              .querySelectorAll(".navbar .dropdown-menu.show")
+              .forEach((menu) => {
+                menu.classList.remove("show");
+              });
+          }
+        });
+      });
+
+      // ====== Cierra el menú móvil al hacer clic en un enlace normal ======
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          if (!link.classList.contains("dropdown-toggle")) {
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) {
+              bsCollapse.hide();
+            }
           }
         });
       });

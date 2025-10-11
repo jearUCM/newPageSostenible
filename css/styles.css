@@ -60,6 +60,42 @@ body {
   font-size: 0.9rem;
 }
 
+/* Centrar logo, contacto y correo en móviles */
+@media (max-width: 992px) {
+  .top-bar .row {
+    text-align: center;
+  }
+
+  .logo-container {
+    justify-content: center !important;
+    flex-direction: column;
+  }
+
+  .contact-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-text h6,
+  .contact-text p {
+    text-align: center;
+  }
+
+  .contact-item i {
+    margin-right: 0;
+  }
+
+  .col-md-4,
+  .col-md-8 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .top-bar .container {
+    padding: 10px 15px;
+  }
+}
+
 /* Navigation */
 .navbar {
   background: #1a1a1a !important;
@@ -120,6 +156,64 @@ body {
   .btn-talleres {
     width: 100%;
   }
+}
+
+/* Estilo para el botón de menú en móviles */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* 🔹 Ocupa todo el ancho del contenedor */
+    padding: 15px 0; /* 🔹 Da un área de clic cómoda */
+    background-color: #1a1a1a; /* 🔹 Mismo fondo que la navbar */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .menu-toggle i {
+    font-size: 1.3rem;
+  }
+}
+
+/* ===== Ajustes del dropdown en versión móvil ===== */
+@media (max-width: 992px) {
+  .navbar-nav .dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: static; /* 🔹 evita problemas de posición */
+    float: none;
+    background-color: #222; /* 🔹 mismo tono que el navbar */
+    border: none;
+    padding-left: 1rem;
+  }
+
+  .navbar-nav .dropdown-menu.show {
+    display: block; /* 🔹 visible cuando Bootstrap la activa */
+  }
+
+  .navbar-nav .dropdown-item {
+    color: #fff;
+  }
+
+  .navbar-nav .dropdown-item:hover {
+    background-color: #333;
+    color: #a8d867;
+  }
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: #2a2a2a;
+  color: #a8d867 !important; /* Verde al hacer hover */
+  padding-left: 1.5rem;
+}
+
+.navbar-nav .dropdown-item:active,
+.navbar-nav .dropdown-item:focus {
+  background-color: #333 !important; /* Gris al hacer click */
+  color: #fff !important;
 }
 
 /* Carousel */
@@ -632,5 +726,17 @@ section {
 
   .stat-number {
     font-size: 2rem;
+  }
+}
+
+/* Ajuste de desplazamiento para secciones ancladas */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* En móviles, ajustar solo para la altura del navbar (sin top-bar) */
+@media (max-width: 991px) {
+  section {
+    scroll-margin-top: 70px; /* Altura aproximada del navbar en móvil */
   }
 }
