@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Visor Geográfico</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/js/leaflet.css" />
+    <script src="assets/js/leaflet.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- ========== START MOBILE HEADER ========== -->
+    <div class="mobile-header d-lg-none">
+      <div class="mobile-title-container">
+        <h1>Visor Geográfico PAGA</h1>
+        <p>Tramo K2+540 al K4+400 Armenia, Quindío</p>
+      </div>
+    </div>
+    <!-- ========== END MOBILE HEADER ========== -->
+
+    <!-- ========== MAIN APP CONTAINER ========== -->
+    <div class="app-container">
+      <!-- ========== SIDEBAR (Desktop) ========== -->
+      <aside class="sidebar d-none d-lg-flex">
+        <!-- Header fijo (igual que mobile) -->
+        <div class="sidebar-header">
+          <div class="brand-title-container">
+            <h2 class="brand-title">Visor Geográfico PAGA</h2>
+            <p class="brand-subtitle">
+              Tramo K2+540 al K4+400 Armenia, Quindío
+            </p>
+          </div>
+        </div>
+
+        <!-- Contenido scrollable: Filtro + Capas -->
+        <div class="sidebar-scrollable">
+          <!-- Filtro -->
+          <div class="block border mt-3">
+            <div class="search-section">
+              <strong>Filtrar</strong>
+            </div>
+            <div class="search-content">
+              <div class="input-group">
+                <input
+                  id="layerSearchDesktop"
+                  type="text"
+                  class="form-control form-control-sm"
+                  placeholder="Buscar capas..."
+                />
+                <button
+                  id="btnSearchDesktop"
+                  class="btn search-btn"
+                  type="button"
+                  aria-label="Buscar"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENTE BIÓTICO (Bloque independiente) -->
+          <div class="block border mt-3">
+            <div class="accordion" id="mainAccordionBiotico">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingBiotico">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseBiotico"
+                    aria-expanded="false"
+                    aria-controls="collapseBiotico"
+                  >
+                    COMPONENTE BIÓTICO
+                  </button>
+                </h2>
+                <div
+                  id="collapseBiotico"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingBiotico"
+                  data-bs-parent="#mainAccordionBiotico"
+                >
+                  <div class="accordion-body">
+                    <div class="accordion" id="bioticoInner">
+                      <!-- Geología -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#bioticoGeologia"
+                          >
+                            Agua
+                          </button>
+                        </h2>
+                        <div
+                          id="bioticoGeologia"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#bioticoInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geología - Unidades Geologicas"
+                            >
+                              <div class="layer-name">Unidades Geológicas</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_g_unidades"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geología - Superficial"
+                            >
+                              <div class="layer-name">
+                                Unidad Geológica Superficial
+                              </div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_g_superficial"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geología - Fallas"
+                            >
+                              <div class="layer-name">Fallas (muestra)</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_g_fallas"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Biotico - Geología -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geología - Cobertura vegetal (sustrato geológico)"
+                            >
+                              <div class="layer-name">Cobertura vegetal</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_cov_veg"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geología - Indice de vegetacion"
+                            >
+                              <div class="layer-name">
+                                Índice de vegetación (NDVI)
+                              </div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_ndvi"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Topografía -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#bioticoTopo"
+                          >
+                            Luz
+                          </button>
+                        </h2>
+                        <div
+                          id="bioticoTopo"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#bioticoInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Topografía - Curvas de nivel"
+                            >
+                              <div class="layer-name">Curvas de nivel</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_t_curvas"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Topografía - Pendientes"
+                            >
+                              <div class="layer-name">Pendientes</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_t_pendientes"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Topografía - Elevación"
+                            >
+                              <div class="layer-name">Elevación</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_t_elevacion"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Biotico - Topografía -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Topografía - Habitats criticos topografia"
+                            >
+                              <div class="layer-name">Hábitats críticos</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_habitats"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Geomática -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#bioticoGeom"
+                          >
+                            Suelo
+                          </button>
+                        </h2>
+                        <div
+                          id="bioticoGeom"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#bioticoInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geomática - Fotografía aérea"
+                            >
+                              <div class="layer-name">Fotografía aérea</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_gm_foto"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geomática - Ortofoto"
+                            >
+                              <div class="layer-name">Ortofoto</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_gm_ortofoto"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geomática - Mosaico"
+                            >
+                              <div class="layer-name">Mosaico</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_gm_mosaico"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Biotico - Geomática -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Biotico - Geomática - Especies protegidas"
+                            >
+                              <div class="layer-name">Especies protegidas</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="bi_especies"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENTE ABIÓTICO (Bloque independiente) -->
+          <div class="block border mt-3">
+            <div class="accordion" id="mainAccordionAbiotico">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingAbiotico">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseAbiotico"
+                    aria-expanded="false"
+                    aria-controls="collapseAbiotico"
+                  >
+                    COMPONENTE ABIÓTICO
+                  </button>
+                </h2>
+                <div
+                  id="collapseAbiotico"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingAbiotico"
+                  data-bs-parent="#mainAccordionAbiotico"
+                >
+                  <div class="accordion-body">
+                    <div class="accordion" id="abioticoInner">
+                      <!-- Geología -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#abiGeologia"
+                          >
+                            productor
+                          </button>
+                        </h2>
+                        <div
+                          id="abiGeologia"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#abioticoInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geología - Suelos"
+                            >
+                              <div class="layer-name">Suelos</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_g_suelos"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geología - Minerales"
+                            >
+                              <div class="layer-name">Minerales</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_g_minerales"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geología - Capas sísmicas"
+                            >
+                              <div class="layer-name">Capas sísmicas</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_g_sismicas"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Abiotico - Geología -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geología - Permeabilidad"
+                            >
+                              <div class="layer-name">Permeabilidad</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_g_permeabilidad"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geología - Textura del suelo"
+                            >
+                              <div class="layer-name">Textura del suelo</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_g_textura"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Topografía -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#abiTopo"
+                          >
+                            consumidor
+                          </button>
+                        </h2>
+                        <div
+                          id="abiTopo"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#abioticoInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Topografía - DEM"
+                            >
+                              <div class="layer-name">DEM</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_t_dem"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Topografía - Hidrología"
+                            >
+                              <div class="layer-name">Cuencas y ríos</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_t_hidrologia"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Topografía - Pendientes"
+                            >
+                              <div class="layer-name">Pendientes</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_t_pendientes"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Abiotico - Topografía -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Topografía - Zonificación de inundación"
+                            >
+                              <div class="layer-name">
+                                Zonificación de inundación
+                              </div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_t_zonas_inundacion"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Geomática -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#abiGeom"
+                          >
+                            exportador
+                          </button>
+                        </h2>
+                        <div
+                          id="abiGeom"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#abioticoInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geomática - Lidar"
+                            >
+                              <div class="layer-name">Lidar</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_gm_lidar"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geomática - DSM"
+                            >
+                              <div class="layer-name">DSM</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_gm_dsm"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geomática - Modelos"
+                            >
+                              <div class="layer-name">Modelos</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_gm_modelos"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Abiotico - Geomática -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Abiotico - Geomática - Modelos de erosión"
+                            >
+                              <div class="layer-name">Modelos de erosión</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="ab_gm_erosion"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPONENTE SOCIOECONÓMICO (Bloque independiente) -->
+          <div class="block border mt-3">
+            <div class="accordion" id="mainAccordionSocial">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSocial">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseSocial"
+                    aria-expanded="false"
+                    aria-controls="collapseSocial"
+                  >
+                    COMPONENTE SOCIOECONÓMICO
+                  </button>
+                </h2>
+                <div
+                  id="collapseSocial"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingSocial"
+                  data-bs-parent="#mainAccordionSocial"
+                >
+                  <div class="accordion-body">
+                    <div class="accordion" id="socialInner">
+                      <!-- Geología -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#socGeologia"
+                          >
+                            Geología
+                          </button>
+                        </h2>
+                        <div
+                          id="socGeologia"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#socialInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geología - Uso del suelo"
+                            >
+                              <div class="layer-name">Uso del suelo</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_g_uso"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geología - Zonas de riesgo"
+                            >
+                              <div class="layer-name">Zonas de riesgo</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_g_riesgo"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geología - Poblacion"
+                            >
+                              <div class="layer-name">Densidad población</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_g_poblacion"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Socio - Geología -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geología - Actividades economicas"
+                            >
+                              <div class="layer-name">
+                                Actividades económicas
+                              </div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_g_actividades"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Topografía -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#socTopo"
+                          >
+                            Topografía
+                          </button>
+                        </h2>
+                        <div
+                          id="socTopo"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#socialInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Topografía - Vias"
+                            >
+                              <div class="layer-name">Vías</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_t_vias"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Topografía - Infraestructura"
+                            >
+                              <div class="layer-name">Infraestructura</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_t_infra"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Topografía - Parcelas"
+                            >
+                              <div class="layer-name">Parcelas</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_t_parcelas"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Socio - Topografía -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Topografía - Red electrica"
+                            >
+                              <div class="layer-name">Red eléctrica</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_t_red_electrica"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Geomática -->
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#socGeom"
+                          >
+                            Geomática
+                          </button>
+                        </h2>
+                        <div
+                          id="socGeom"
+                          class="accordion-collapse collapse"
+                          data-bs-parent="#socialInner"
+                        >
+                          <div class="accordion-body">
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geomática - Direcciones"
+                            >
+                              <div class="layer-name">Direcciones</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_gm_dir"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geomática - Predios"
+                            >
+                              <div class="layer-name">Predios</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_gm_predios"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geomática - Municipios"
+                            >
+                              <div class="layer-name">Municipios</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_gm_municipios"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Capas adicionales Socio - Geomática -->
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geomática - Zonas protegidas"
+                            >
+                              <div class="layer-name">Zonas protegidas</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_gm_zonas_protegidas"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="layer-row"
+                              data-layer-name="Socio - Geomática - Centros de salud"
+                            >
+                              <div class="layer-name">Centros de salud</div>
+                              <div>
+                                <input
+                                  class="form-check-input layer-toggle"
+                                  type="checkbox"
+                                  data-layer-id="so_gm_centros_salud"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer fijo del sidebar -->
+        <div class="sidebar-footer">
+          <div class="footer-row">
+            <div class="footer-consorcio-text">CONSORCIO MEGAVIAS QUINDIO</div>
+          </div>
+          <div class="footer-row">
+            <div class="footer-consorcio-logo">
+              <img src="assets/img/consorcio.jpeg" alt="Consorcio" />
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ========== OFFCANVAS (Mobile) ========== -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasSidebar"
+        aria-labelledby="offcanvasSidebarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasSidebarLabel">
+            <i class="fas fa-layer-group me-2"></i>Capas Geográficas
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <!-- Filtrar móvil -->
+          <div class="mb-3">
+            <label class="form-label fw-bold">Filtrar capas</label>
+            <div class="input-group">
+              <input
+                id="layerSearchMobile"
+                type="text"
+                class="form-control"
+                placeholder="Buscar..."
+              />
+              <button id="btnSearchMobile" class="btn search-btn" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+          <!-- Accordion móvil -->
+          <div id="mobileAccordionContainer"></div>
+        </div>
+      </div>
+
+      <!-- ========== MAP CONTAINER ========== -->
+      <main class="map-container">
+        <div id="map">
+          <!-- Contenedor personalizado para el zoom -->
+          <div class="custom-zoom-container">
+            <button class="zoom-in" title="Acercar">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button class="zoom-out" title="Alejar">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- ========== MOBILE FLOATING BUTTON (Outside map, before footer) ========== -->
+      <div class="mobile-floating-button-container d-lg-none">
+        <div class="button-wrapper">
+          <button
+            class="btn btn-layers"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasSidebar"
+            aria-controls="offcanvasSidebar"
+          >
+            <i class="fas fa-layer-group"></i>
+            Capas
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== MOBILE FOOTER ========== -->
+    <div class="mobile-footer d-lg-none">
+      <div class="footer-row">
+        <div class="footer-consorcio-text">CONSORCIO MEGAVIAS QUINDIO</div>
+      </div>
+      <div class="footer-row">
+        <div class="footer-consorcio-logo">
+          <img src="assets/img/consorcio.jpeg" alt="Consorcio" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      var map = L.map("map", {
+        zoomControl: false, // Desactivamos el control por defecto
+      }).setView([4.530346, -75.726988], 13);
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      // Control de zoom personalizado
+      document.querySelector(".zoom-in").addEventListener("click", function () {
+        map.zoomIn();
+      });
+
+      document
+        .querySelector(".zoom-out")
+        .addEventListener("click", function () {
+          map.zoomOut();
+        });
+
+      const panel = document.querySelector(".custom-zoom-container");
+
+      panel.addEventListener("mouseenter", () => {
+        map.dragging.disable();
+        map.scrollWheelZoom.disable();
+        map.doubleClickZoom.disable();
+      });
+
+      panel.addEventListener("mouseleave", () => {
+        map.dragging.enable();
+        map.scrollWheelZoom.enable();
+        map.doubleClickZoom.enable();
+      });
+
+      (function () {
+        function createOverlay(id, color) {
+          const map = document.getElementById("map");
+          if (document.getElementById(id)) return;
+          const div = document.createElement("div");
+          div.id = id;
+          div.className = "map-overlay";
+          div.style.background = color;
+          map.appendChild(div);
+        }
+        function removeOverlay(id) {
+          const el = document.getElementById(id);
+          if (el) el.remove();
+        }
+        function colorFor(id) {
+          const colors = [
+            "rgba(220,53,69,0.35)",
+            "rgba(13,110,253,0.25)",
+            "rgba(40,167,69,0.25)",
+            "rgba(255,193,7,0.18)",
+            "rgba(108,117,125,0.18)",
+            "rgba(102,16,242,0.20)",
+            "rgba(0,123,255,0.15)",
+          ];
+          let h = 0;
+          for (let i = 0; i < id.length; i++)
+            h = (h * 31 + id.charCodeAt(i)) >>> 0;
+          return colors[h % colors.length];
+        }
+        document.querySelectorAll(".layer-toggle").forEach(function (sw) {
+          sw.addEventListener("change", function (e) {
+            const layerId = sw.dataset.layerId || sw.id;
+            const overlayId = "overlay-" + layerId;
+            if (sw.checked) {
+              createOverlay(overlayId, colorFor(layerId));
+              console.log("✓ Activada capa:", layerId);
+            } else {
+              removeOverlay(overlayId);
+              console.log("✗ Desactivada capa:", layerId);
+            }
+          });
+        });
+
+        /* Dosearch */
+
+        function doSearch(term) {
+          const rows = Array.from(document.querySelectorAll(".layer-row"));
+          const t = term.trim().toLowerCase();
+
+          // Ocultar todo si el término tiene menos de 2 caracteres
+          if (t.length < 2) {
+            rows.forEach(function (r) {
+              const nameElement = r.querySelector(".layer-name");
+              if (nameElement) {
+                nameElement.innerHTML = nameElement.textContent; // Restablecer texto
+              }
+              r.classList.remove("hidden");
+            });
+            // Mostrar solo los acordeones principales y cerrar los sub-acordeones
+            document
+              .querySelectorAll(".accordion-collapse")
+              .forEach(function (collapse) {
+                const collapseInstance = bootstrap.Collapse.getOrCreateInstance(
+                  collapse,
+                  {
+                    toggle: false,
+                  }
+                );
+                const isMainAccordion =
+                  collapse.id.includes("collapseBiotico") ||
+                  collapse.id.includes("collapseAbiotico") ||
+                  collapse.id.includes("collapseSocial");
+                if (isMainAccordion) {
+                  collapseInstance.show(); // Mostrar solo los principales
+                } else {
+                  collapseInstance.hide(); // Cerrar los sub-acordeones
+                }
+              });
+            return;
+          }
+
+          let hasMatches = false;
+
+          rows.forEach(function (r) {
+            const nameElement = r.querySelector(".layer-name");
+            if (!nameElement) return;
+
+            const originalText = nameElement.textContent.toLowerCase();
+            const name = nameElement.textContent.toLowerCase();
+            const matchIndex = name.indexOf(t);
+
+            if (matchIndex !== -1) {
+              hasMatches = true;
+              r.classList.remove("hidden");
+              // Resaltar la coincidencia en azul
+              const start = name.indexOf(t);
+              const end = start + t.length;
+              const highlightedText =
+                originalText.substring(0, start) +
+                `<span class="text-primary">${originalText.substring(
+                  start,
+                  end
+                )}</span>` +
+                originalText.substring(end);
+              nameElement.innerHTML = highlightedText;
+
+              // Mostrar los acordeones padres
+              let parent = r.closest(".accordion-collapse");
+              while (parent) {
+                const collapseInstance = bootstrap.Collapse.getOrCreateInstance(
+                  parent,
+                  {
+                    toggle: false,
+                  }
+                );
+                collapseInstance.show();
+                parent = parent.parentElement.closest(".accordion-collapse");
+              }
+            } else {
+              r.classList.add("hidden");
+            }
+          });
+
+          // Ocultar acordeones principales si no hay coincidencias
+          if (!hasMatches) {
+            document
+              .querySelectorAll(".accordion-collapse")
+              .forEach(function (collapse) {
+                const collapseInstance = bootstrap.Collapse.getOrCreateInstance(
+                  collapse,
+                  {
+                    toggle: false,
+                  }
+                );
+                collapseInstance.hide();
+              });
+          }
+        }
+
+        // Event listeners para la búsqueda
+        const searchDesktop = document.getElementById("layerSearchDesktop");
+        const btnSearchDesktop = document.getElementById("btnSearchDesktop");
+        const searchMobile = document.getElementById("layerSearchMobile");
+        const btnSearchMobile = document.getElementById("btnSearchMobile");
+
+        searchDesktop.addEventListener("input", function (e) {
+          doSearch(e.target.value);
+        });
+
+        btnSearchDesktop.addEventListener("click", function () {
+          doSearch(searchDesktop.value);
+        });
+
+        searchMobile.addEventListener("input", function (e) {
+          doSearch(e.target.value);
+        });
+
+        btnSearchMobile.addEventListener("click", function () {
+          doSearch(searchMobile.value);
+        });
+
+        /* end */
+
+        const offcanvas = document.getElementById("offcanvasSidebar");
+        offcanvas.addEventListener("show.bs.offcanvas", function () {
+          const mobileContainer = document.getElementById(
+            "mobileAccordionContainer"
+          );
+          const mainBiotico = document.getElementById("mainAccordionBiotico");
+          const mainAbiotico = document.getElementById("mainAccordionAbiotico");
+          const mainSocial = document.getElementById("mainAccordionSocial");
+
+          if (mobileContainer && mobileContainer.children.length === 0) {
+            // Clonar los tres acordeones principales
+            [mainBiotico, mainAbiotico, mainSocial].forEach(
+              (accordion, idx) => {
+                if (!accordion) return;
+
+                const clone = accordion.cloneNode(true);
+                clone.id = accordion.id + "_mobile";
+
+                const items = clone.querySelectorAll("[id]");
+                items.forEach((item) => {
+                  item.id = item.id + "_mobile";
+                });
+                const targets = clone.querySelectorAll("[data-bs-target]");
+                targets.forEach((target) => {
+                  target.setAttribute(
+                    "data-bs-target",
+                    target.getAttribute("data-bs-target") + "_mobile"
+                  );
+                });
+                const parents = clone.querySelectorAll("[data-bs-parent]");
+                parents.forEach((parent) => {
+                  parent.setAttribute(
+                    "data-bs-parent",
+                    parent.getAttribute("data-bs-parent") + "_mobile"
+                  );
+                });
+                const ariaControls = clone.querySelectorAll("[aria-controls]");
+                ariaControls.forEach((control) => {
+                  control.setAttribute(
+                    "aria-controls",
+                    control.getAttribute("aria-controls") + "_mobile"
+                  );
+                });
+                const ariaLabels = clone.querySelectorAll("[aria-labelledby]");
+                ariaLabels.forEach((label) => {
+                  label.setAttribute(
+                    "aria-labelledby",
+                    label.getAttribute("aria-labelledby") + "_mobile"
+                  );
+                });
+
+                mobileContainer.appendChild(clone);
+
+                const mobileToggles = clone.querySelectorAll(".layer-toggle");
+                mobileToggles.forEach(function (sw) {
+                  sw.addEventListener("change", function (e) {
+                    const layerId =
+                      sw.dataset.layerId || sw.id.replace("_mobile", "");
+                    const overlayId = "overlay-" + layerId;
+                    if (sw.checked) {
+                      createOverlay(overlayId, colorFor(layerId));
+                      console.log("✓ Activada capa (móvil):", layerId);
+                      const desktopSwitch = document.querySelector(
+                        `.sidebar .layer-toggle[data-layer-id="${layerId}"]`
+                      );
+                      if (desktopSwitch) desktopSwitch.checked = true;
+                    } else {
+                      removeOverlay(overlayId);
+                      console.log("✗ Desactivada capa (móvil):", layerId);
+                      const desktopSwitch = document.querySelector(
+                        `.sidebar .layer-toggle[data-layer-id="${layerId}"]`
+                      );
+                      if (desktopSwitch) desktopSwitch.checked = false;
+                    }
+                  });
+                });
+              }
+            );
+          }
+          setTimeout(() => searchMobile.focus(), 300);
+        });
+      })();
+    </script>
+  </body>
+</html>

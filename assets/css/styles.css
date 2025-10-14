@@ -1,0 +1,527 @@
+:root {
+  --sidebar-width: 320px;
+  --primary-green: #4a7c2b;
+  --primary-dark: #2d5016;
+  --accent-green: #a8d867;
+  --mobile-header-height: 70px;
+  --mobile-footer-height: 90px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", Roboto, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  background: #f8f9fa;
+}
+
+/* ========== DESKTOP LAYOUT ========== */
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar Desktop */
+.sidebar {
+  width: var(--sidebar-width);
+  max-width: 100%;
+  border-right: 1px solid #e9ecef;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header fijo del sidebar */
+.sidebar-header {
+  flex-shrink: 0;
+  margin: 0.6rem;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Contenido scrollable */
+.sidebar-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0.6rem;
+}
+
+/* Footer fijo del sidebar */
+.sidebar-footer {
+  flex-shrink: 0;
+  background: #fff;
+  border-top: 1px solid #e9ecef;
+  padding: 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sidebar-footer .footer-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-footer .footer-consorcio-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+.sidebar-footer .footer-consorcio-logo img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ========== BRAND TITLE (Sidebar Header) ========== */
+.brand-title-container {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark) 0%,
+    var(--primary-green) 100%
+  );
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand-subtitle {
+  font-size: 0.85rem;
+  margin: 0;
+  opacity: 0.95;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar blocks */
+.sidebar .block {
+  margin: 0.6rem 0;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Search Section */
+.search-section {
+  background: var(--primary-green);
+  color: white;
+  padding: 0.6rem;
+  font-weight: 600;
+}
+
+.search-content {
+  padding: 0.8rem;
+  background: #fff;
+}
+
+.search-btn {
+  background: var(--primary-green);
+  border: none;
+  color: white;
+  padding: 0.375rem 0.75rem;
+}
+
+.search-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Layer rows */
+.layer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.2s;
+}
+
+.layer-row:hover {
+  background: #f8f9fa;
+}
+
+.layer-row .layer-name {
+  font-size: 0.9rem;
+  color: #343a40;
+}
+
+.layer-row.hidden {
+  display: none !important;
+}
+
+/* Accordion customization */
+.accordion-button {
+  background: #fff;
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7rem 1rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--primary-green);
+  color: white;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+.accordion-item {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-bottom: 0;
+}
+
+.accordion-body {
+  padding: 0;
+}
+
+/* Form switches */
+.form-check-input:checked {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 0.25rem rgba(74, 124, 43, 0.25);
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar-scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sidebar-scrollable::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 4px;
+}
+
+.sidebar-scrollable::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Map Container */
+.map-container {
+  flex: 1;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e9f1ff 0%, #f7fbff 100%);
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Posicionar controles de zoom de Leaflet en la parte superior derecha (Desktop) */
+@media (min-width: 992px) {
+  .leaflet-top.leaflet-right {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* ========== MOBILE LAYOUT ========== */
+@media (max-width: 991.98px) {
+  body {
+    overflow: hidden;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  /* Mobile Header - Posición fija en la parte superior */
+  .mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--mobile-header-height);
+    z-index: 1030;
+    background: #fff;
+    border-bottom: 2px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-title-container {
+    background: linear-gradient(
+      135deg,
+      var(--primary-dark) 0%,
+      var(--primary-green) 100%
+    );
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mobile-title-container h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .mobile-title-container p {
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  /* Map Container Mobile - Ocupa todo el espacio entre header y footer (incluyendo footer) */
+
+  /* Map Container Mobile - Ocupa todo el espacio entre header y footer (incluyendo footer) */
+  .map-container {
+    position: absolute;
+    top: var(--mobile-header-height);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    flex: none;
+    z-index: 1;
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Botón flotante de capas - Centrado y fuera del mapa */
+  .mobile-floating-button-container {
+    position: fixed;
+    bottom: calc(var(--mobile-footer-height) + 10px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1035;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .mobile-floating-button-container .button-wrapper {
+    text-align: center;
+    pointer-events: auto;
+    width: 100%;
+    max-width: 300px;
+    padding: 0 20px;
+  }
+
+  .btn-layers {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    width: auto;
+    max-width: 200px;
+  }
+
+  .btn-layers:hover,
+  .btn-layers:active {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mobile Footer - Posición fija en la parte inferior */
+  .mobile-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--mobile-footer-height);
+    z-index: 1030;
+    background: #fff;
+    border-top: 2px solid #e9ecef;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .footer-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-consorcio-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-align: center;
+  }
+
+  .footer-consorcio-logo img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Offcanvas - z-index menor que el botón de capas */
+  .offcanvas {
+    width: 85vw !important;
+    max-width: 400px;
+    z-index: 1050;
+  }
+
+  .offcanvas-header {
+    background: linear-gradient(
+      135deg,
+      var(--primary-dark) 0%,
+      var(--primary-green) 100%
+    );
+    color: white;
+    padding: 1rem;
+  }
+
+  .offcanvas-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .btn-close {
+    filter: brightness(0) invert(1);
+  }
+
+  .offcanvas-body {
+    padding: 1rem;
+  }
+
+  /* Backdrop del offcanvas debe estar debajo del botón de capas */
+  .offcanvas-backdrop {
+    z-index: 1040;
+  }
+}
+
+/* Hide mobile elements on desktop */
+@media (min-width: 992px) {
+  .mobile-header,
+  .mobile-footer,
+  .mobile-controls-map {
+    display: none !important;
+  }
+}
+
+/* Map overlay styles (para las capas simuladas) */
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 400;
+}
+
+.text-primary {
+  color: #007bff !important;
+  font-weight: 600;
+}
+
+/* Contenedor personalizado para el control de zoom (estilo Leaflet original) */
+.custom-zoom-container {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 32px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-zoom-container button {
+  width: 100%;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-zoom-container button:first-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.custom-zoom-container button:hover {
+  background: #f4f4f4;
+}
+
+.custom-zoom-container .zoom-in i,
+.custom-zoom-container .zoom-out i {
+  font-size: 18px;
+  color: #555;
+}
