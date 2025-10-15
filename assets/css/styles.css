@@ -5,6 +5,7 @@
   --accent-green: #a8d867;
   --mobile-header-height: 70px;
   --mobile-footer-height: 90px;
+  --primary-green-rgb: 74, 124, 43; /* RGB de #4a7c2b */
 }
 
 * {
@@ -524,4 +525,77 @@ body {
 .custom-zoom-container .zoom-out i {
   font-size: 18px;
   color: #555;
+}
+
+/* popup */
+/* Contenedor envolvente para permitir scroll horizontal */
+.popup-table-wrapper {
+  max-width: 300px;
+  overflow-x: auto;
+  border-radius: 4px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.popup-table {
+  font-family: "Poppins", Roboto, system-ui, sans-serif;
+  width: auto;
+  cursor: pointer !important;
+  min-width: 100%; /* Asegura que la tabla no se contraiga más allá de su contenido */
+}
+
+.popup-data-table {
+  width: 100%;
+  min-width: fit-content; /* Permite que la tabla sea más ancha que 100% si es necesario */
+  border-collapse: collapse;
+  box-shadow: none; /* Quitamos la sombra de la tabla porque ahora la tiene el wrapper */
+  border-radius: 0; /* El borde redondeado lo maneja el wrapper */
+}
+
+/* El resto de tus estilos permanecen igual */
+.popup-row-white {
+  background: #ffffff;
+}
+
+.popup-row-gray {
+  background: #f0f2f5;
+}
+
+.popup-cell-key {
+  padding: 0.2rem 0.4rem;
+  font-weight: 600;
+  color: #2d5016;
+  border-right: 1px solid #e9ecef;
+  width: 35%;
+  word-break: break-word;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup-cell-value {
+  padding: 0.2rem 0.4rem;
+  color: #343a40;
+  font-size: 0.7rem;
+  word-break: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup-data-table tr:hover {
+  background: rgba(var(--primary-green-rgb), 0.7);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+}
+
+/* Aseguramos que el wrapper de Leaflet no interfiera */
+.leaflet-popup-content-wrapper {
+  border-radius: 4px;
+  box-shadow: none; /* La sombra la maneja nuestro .popup-table-wrapper */
+  padding: 0; /* Evitamos paddings extra que puedan interferir */
 }
